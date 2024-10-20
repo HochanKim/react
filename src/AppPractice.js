@@ -3,7 +3,7 @@ import PagePractice from './component_1018/PagePractice';
 import { ThemeContext } from './context/BackgroundContext';
 
 function App() {
-  const [color, setColor] = useState('light');
+  const {color, setColor} = useState('light');
 
   return (
       <ThemeContext.Provider value={{color, setColor}}>

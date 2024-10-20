@@ -1,11 +1,17 @@
 import React, { useContext } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
+import { ThemeContext } from '@emotion/react';
 
 function Footer() {
-  // const {language} = useContext(LanguageContext);
+  const {color} = useContext(ThemeContext);
+  const footerStyle = {
+    backgroundColor : color === 'dark'?'#666' : '#fff', 
+    color : color === 'dark'?'#fff' : '#000', 
+    height : '80px', 
+    padding : '20px 0'
+  };
 
   return (
-    <footer className="footer" style={{background : '#999', color : '#fff', height : '50px', padding : '20px 0'}}>
+    <footer className="footer" style={footerStyle}>
       <p>푸터임</p>
     </footer>
   );

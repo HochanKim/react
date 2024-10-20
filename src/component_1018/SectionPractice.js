@@ -1,22 +1,18 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from '../context/BackgroundContext';
 
 function Main() {
-  // const { user, login, logout } = useContext(UserContext);
+  const {color} = useContext(ThemeContext);
+  const mainStyle = {
+    backgroundColor : color === 'dark'?'#666' : '#fff', 
+    color : color === 'dark'?'#fff' : '#000', 
+    height : '80px', 
+    padding : '20px 0'
+  };
 
   return (
-    <main className="main" style={{background : '#666', color : '#fff', height : '80px', padding : '20px 0'}}>
-      {/* {user ? (
-        <>
-          <button onClick={logout}>로그아웃</button>
-          <p>환영합니다!, {user.name}님! 로그인 됨.</p>     
-        </>
-      ) : (
-        <>
-          <button onClick={login}>로그인</button>
-          <p>로그인하셈.</p>         
-        </>
-      )} */}
-      <p>현재 색상 모드 : dark</p>
+    <main className="main" style={mainStyle}>
+      <p>현재 색상 모드 : {color}</p>
     </main>
   );
 }
